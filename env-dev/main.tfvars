@@ -11,8 +11,9 @@ vpc = {
 subnets = {
 
 public = {
+name = "public"
 cidr_block = ["10.0.0.0/24" , "10.0.1.0/24"]
-availability_zones = ["us-east-1a" , "us-east-1b"]
+availability_zone = ["us-east-1a" , "us-east-1b"]
 }
 
 web = {
