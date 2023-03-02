@@ -9,8 +9,8 @@ module "vpc" {
  }
  
  module "subnets" {
-  source  = "github.com/Nagamanidevops/tf-module-subnets"
-  
+  source  = "github.com/Nagamanidevops/tf-module-subnet.git"
+
   env = var.env
   default_vpc_id = var.default_vpc_id
   for_each = var.subnets
