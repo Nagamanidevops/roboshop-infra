@@ -18,7 +18,7 @@ module "vpc" {
   availability_zone = each.value.availability_zone
   name = each.value.name
   vpc_id = lookup(lookup(module.vpc,each.value.vpc_name,null),"vpc_peering_connection_id",null)
-  vpc_peering_connection_id =  
+  vpc_peering_connection_id =  var.vpc_peering_connection_id
 
  } 
  
