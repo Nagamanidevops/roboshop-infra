@@ -8,7 +8,7 @@ vpc = {
 
 
 
-      subnets = {
+      
       public_subnets = {
       public = {
       name = "public"
@@ -44,7 +44,7 @@ vpc = {
       
          
   }
-}
+
       
       
       
