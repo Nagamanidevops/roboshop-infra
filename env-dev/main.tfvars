@@ -4,6 +4,8 @@ default_vpc_id = "vpc-00682b9d34c0f8605"
 vpc = {
   main = {
     cidr_block   = "10.0.0.0/16"
+    availability_zone = ["us-east-1a" , "us-east,1b"]
+
 
 
       subnets = {
@@ -11,7 +13,6 @@ vpc = {
       public = {
       name = "public"
       cidr_block = ["10.0.0.0/24" , "10.0.1.0/24"]
-      availability_zone = ["us-east-1a" , "us-east,1b"]
       internet_gw = true
       create_nat_gw = true
       }
