@@ -16,7 +16,7 @@ vpc = {
       internet_gw = true
       }
       }
-            public_subnets = {
+      private_subnets = {
             
             web = {
       name = "web"
