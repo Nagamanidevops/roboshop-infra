@@ -20,8 +20,10 @@ module docdb {
   
   for_each = var.docdb
  
-  subnet_ids = lookup(lookup( lookup(lookup( module.vpc , each.value.vpc_name,null),  "private_subnets_ids",null),each.value.subnet_name,null), "subnet_ids"
+ // subnet_ids = lookup(lookup( lookup(lookup( module.vpc , each.value.vpc_name,null),  "private_subnets_ids",null),each.value.subnet_name,null), "subnet_ids"
 ,null)  
+  subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name, null), "private_subnet_ids", null), each.value.subnets_name, null), "subnet_ids", null)
+
 }
 
 output "vpc" {
