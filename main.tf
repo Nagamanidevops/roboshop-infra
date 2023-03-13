@@ -47,7 +47,7 @@ module "rds" {
 
 
 module "elasticache" {
-  source   = "github.com/Nagamanidevops/tf-module-elasticache"
+  source   = "github.com/Nagamanidevops/tf-module-elasticcache"
   env    = var.env
 
   for_each            = var.elasticache
