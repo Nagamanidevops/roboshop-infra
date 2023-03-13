@@ -31,24 +31,44 @@ instance_class = each.value.instance_class
 }
 
 
-module rds {
+# module rds {
 
-  source   = "github.com/Nagamanidevops/tf-module-rds"
+#   source   = "github.com/Nagamanidevops/tf-module-rds"
   
-  env = var.env
-  vpc_id = lookup (lookup(module.vpc, each.value.vpc_name, null), "vpc_id",null )
+#   env = var.env
+#   vpc_id = lookup (lookup(module.vpc, each.value.vpc_name, null), "vpc_id",null )
 
-  for_each = var.rds
+#   for_each = var.rds
  
-  subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name, null), "private_subnet_ids", null), each.value.subnet_name, null), "subnet_ids", null)
-  allow_cidr     = lookup(lookup(lookup(lookup(var.vpc, each.value.vpc_name, null), "private_subnets", null), "app", null), "cidr_block", null)
+#   subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name, null), "private_subnet_ids", null), each.value.subnet_name, null), "subnet_ids", null)
+#   allow_cidr     = lookup(lookup(lookup(lookup(var.vpc, each.value.vpc_name, null), "private_subnets", null), "app", null), "cidr_block", null)
 
-engine_version  = each.value.engine_version
-engine  = each.value.engine
+# engine_version  = each.value.engine_version
+# engine  = each.value.engine
 
-number_of_instances = each.value.number_of_instances
-instance_class = each.value.instance_class
+# number_of_instances = each.value.number_of_instances
+# instance_class = each.value.instance_class
+# }
+
+
+module "rds" {
+  source   = "github.com/Nagamanidevops/tf-module-rds"
+  env    = var.env
+
+  for_each            = var.rds
+  subnet_ids          = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name, null), "private_subnet_ids", null), each.value.subnets_name, null), "subnet_ids", null)
+  vpc_id              = lookup(lookup(module.vpc, each.value.vpc_name, null), "vpc_id", null)
+  allow_cidr          = lookup(lookup(lookup(lookup(var.vpc, each.value.vpc_name, null), "private_subnets", null), "app", null), "cidr_block", null)
+  engine              = each.value.engine
+  engine_version      = each.value.engine_version
+  number_of_instances = each.value.number_of_instances
+  instance_class      = each.value.instance_class
 }
+
+
+
+
+
 
 output "vpc" {
   value = module.vpc
