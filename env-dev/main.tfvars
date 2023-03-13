@@ -62,7 +62,7 @@ instance_class = "db.t3.medium"
 }
 }
 
-
+ 
 rds = {
   main = {
     vpc_name            = "main"
@@ -73,8 +73,6 @@ rds = {
     instance_class      = "db.t3.small"
   }
 }
-
-
 
 
 
