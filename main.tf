@@ -70,7 +70,7 @@ module "rabbitmq" {
   engine_type         = each.value.rabbitmq
   engine_version      = each.value.engine_version
   host_instance_type  = each.value.host_instance_type
-  deployemnt_mode     = each.value.deployemnt_mode
+  deployement_mode     = each.value.deployement_mode
 }
 
 
