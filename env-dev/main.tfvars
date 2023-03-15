@@ -114,6 +114,7 @@ public = {
 vpc_name = "main"
 subnets_name = "public"
 subnets_type  = "public_subnets"
+internal = false
 
 }
 
@@ -122,6 +123,7 @@ private = {
 vpc_name = "main"
 subnets_name = "app"
 subnets_type  = "private_subnets"
+internal = true
 
 
 }
