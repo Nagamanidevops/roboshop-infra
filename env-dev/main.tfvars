@@ -141,7 +141,7 @@ catalogue = {
 component = "catalogue"
 vpc_name = "main"
 subnets_type  = "private_subnet_ids"
-subnets_name = "web"
+subnets_name = "app"
 app_port = 8080 
 
 }
