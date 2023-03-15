@@ -129,20 +129,26 @@ internal = true
 }
 }
 
-apps ={
+apps = {
+ 
 frontend = {
-component = "frontend"
-vpc_name = "main"
-subnets_type  = "private_subnet_ids"
-subnets_name = "web"
-app_port = 80 
+  component = "frontend"
+  vpc_name = "main"
+  subnets_type  = "private_subnet_ids"
+  subnets_name = "web"
+  app_port = 80 
+  allow_cidr_subnets_type  = "public_subnets"
+  allow_cidr_subnets_name  = "public"
 }
 catalogue = {
-component = "catalogue"
-vpc_name = "main"
-subnets_type  = "private_subnet_ids"
-subnets_name = "app"
-app_port = 8080 
+  component = "catalogue"
+  vpc_name = "main"
+  subnets_type  = "private_subnet_ids"
+  subnets_name = "app"
+  app_port = 8080 
+  allow_cidr_subnets_type  = "private_subnets"
+  allow_cidr_subnets_name  = "app"
+
 
 }
 }

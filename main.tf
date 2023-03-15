@@ -95,10 +95,11 @@ module "apps" {
   subnet_ids          = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name, null), each.value.subnets_type, null), each.value.subnets_name, null), "subnet_ids", null)
 
   vpc_id              = lookup(lookup(module.vpc, each.value.vpc_name, null), "vpc_id", null)
-  allow_cidr          = lookup(lookup(lookup(lookup(var.vpc, each.value.vpc_name, null), "private_subnets", null), "app", null), "cidr_block", null)
- // subnets_name        = each.value.subnets_name
+  allow_cidr          = lookup(lookup(lookup(lookup(var.vpc, each.value.vpc_name, null), allow_cidr_subnets_type , null), allow_cidr_subnets_name, null), "cidr_block", null)
   component           = each.value.component
   app_port            = each.value.app_port
+  
+  
 }
 
 
