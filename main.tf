@@ -114,6 +114,6 @@ module "apps" {
 
 
 
-output "vpc" {
-  value = module.elasticache
+output "rds" {
+  value = module.rds
 }
