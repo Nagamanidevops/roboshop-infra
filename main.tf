@@ -115,5 +115,5 @@ module "apps" {
 
 
 output "vpc" {
-  value = module.elasticache.cache_nodes[0].address
+  value = module.elasticache
 }
