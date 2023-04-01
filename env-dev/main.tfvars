@@ -85,9 +85,9 @@ subnet_name = "db"
 engine = "redis"
 engine_version = "5.7.mysql_aurora.2.11.1"
 instance_class = "cache.t3.micro"
-num_node_groups         = 1
-replicas_per_node_group = 1
+num_cache_nodes         = 1
 node_type = "cache.t3.micro"
+engine_version = "6.x"
 
 }
 }
