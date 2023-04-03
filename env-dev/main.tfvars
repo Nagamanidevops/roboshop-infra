@@ -144,6 +144,7 @@ frontend = {
   min_size                  = 1
   desired_capacity          = 1
   instance_type             = "t3.micro"
+  alb                       = "public"   
   
 }
 catalogue = {
@@ -158,6 +159,7 @@ catalogue = {
   min_size                  = 1
   desired_capacity          = 1
   instance_type             = "t3.micro"
+  alb = "private"
 }
 
 user = {
@@ -172,6 +174,7 @@ user = {
   min_size                  = 1
   desired_capacity          = 1
   instance_type             = "t3.micro"
+  alb = "private"
 }
 
 cart = {
@@ -186,6 +189,7 @@ cart = {
   min_size                  = 1
   desired_capacity          = 1
   instance_type             = "t3.micro"
+  alb = "private"
 }
 shipping = {
   component = "shipping"
@@ -199,6 +203,7 @@ shipping = {
   min_size                  = 1
   desired_capacity          = 1
   instance_type             = "t3.micro"
+  alb = "private"
 }
 payment = {
   component = "payment"
@@ -212,5 +217,6 @@ payment = {
   min_size                  = 1
   desired_capacity          = 1
   instance_type             = "t3.micro"
+  alb = "private"
 }
 }
