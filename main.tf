@@ -88,6 +88,7 @@ module "alb" {
 
   subnets_name        = each.value.subnets_name
    internal           = each.value.internal
+   dns_domain         = each.value.dns_domain
 }
 
 module "apps" {

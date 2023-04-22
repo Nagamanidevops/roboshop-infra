@@ -118,6 +118,7 @@ vpc_name = "main"
 subnets_name = "public"
 subnets_type  = "public_subnet_ids"
 internal = false
+dns_domain = "www"
 
 }
 
@@ -127,6 +128,7 @@ vpc_name = "main"
 subnets_name = "app"
 subnets_type  = "private_subnet_ids"
 internal = true
+dns_domain = ""
 
 
 }
