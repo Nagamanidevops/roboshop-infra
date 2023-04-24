@@ -134,24 +134,24 @@ module "apps" {
 #   wait_for_fulfillment   = true
 # }
 
-resource "aws_ec2_tag" "tag" {
-  resource_id = aws_spot_instance_request.load.spot_instance_id
-  key         = "Name"
-  value       = "load-runner"
-}
+# resource "aws_ec2_tag" "tag" {
+#   resource_id = aws_spot_instance_request.load.spot_instance_id
+#   key         = "Name"
+#   value       = "load-runner"
+# }
 
-resource "null_resource" "apply" {
-  provisioner "remote-exec" {
-    connection {
-      host     = aws_spot_instance_request.load.public_ip
-      user     = "root"
-      password = "DevOps321"
-    }
-    inline = [
-      "curl -s -L https://get.docker.com | bash",
-      "systemctl enable docker",
-      "systemctl start docker",
-      "docker pull robotshop/rs-load"
-    ]
-  }
-}
+# resource "null_resource" "apply" {
+#   provisioner "remote-exec" {
+#     connection {
+#       host     = aws_spot_instance_request.load.public_ip
+#       user     = "root"
+#       password = "DevOps321"
+#     }
+#     inline = [
+#       "curl -s -L https://get.docker.com | bash",
+#       "systemctl enable docker",
+#       "systemctl start docker",
+#       "docker pull robotshop/rs-load"
+#     ]
+#   }
+# }
