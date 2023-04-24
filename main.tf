@@ -126,13 +126,13 @@ module "apps" {
 
 
 // Load Test Machine
-resource "aws_spot_instance_request" "load" {
-  instance_type          = "t3.medium"
-  ami                    = "ami-0089b8e98cd95257d" 
-  subnet_id              = "subnet-0ede4f4a4d8277736"
-  vpc_security_group_ids = ["sg-04ecfc98ca4893e0d"]
-  wait_for_fulfillment   = true
-}
+# resource "aws_spot_instance_request" "load" {
+#   instance_type          = "t3.medium"
+#   ami                    = "ami-0089b8e98cd95257d" 
+#   subnet_id              = "subnet-0ede4f4a4d8277736"
+#   vpc_security_group_ids = ["sg-04ecfc98ca4893e0d"]
+#   wait_for_fulfillment   = true
+# }
 
 resource "aws_ec2_tag" "tag" {
   resource_id = aws_spot_instance_request.load.spot_instance_id
