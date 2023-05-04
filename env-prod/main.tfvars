@@ -1,6 +1,7 @@
 env = "prod"
 bastion_cidr = ["172.31.2.62/32"]
 monitor_cidr = ["172.31.8.126/32"]
+hosted_zone  = "devopsg70.online"
 
 default_vpc_id = "vpc-00682b9d34c0f8605"
 
