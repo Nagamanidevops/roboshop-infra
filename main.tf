@@ -136,8 +136,10 @@ module "minikube" {
   cluster_name      = "minikube"
   aws_instance_type = "t3.medium"
   ssh_public_key    = "~/.ssh/id_rsa.pub"
-  aws_subnet_id     = element(lookup(lookup(lookup(lookup(module.vpc, "main", null), "public_subnets_ids", null), "public", null), "subnet_ids", null), 0)
+  //aws_subnet_id     = element(lookup(lookup(lookup(lookup(module.vpc, "main", null), "public_subnets_ids", null), "public", null), "subnet_ids", null), 0)
   //ami_image_id        = data.aws_ami.ami.id
+  aws_subnet_id     = element(lookup(lookup(lookup(lookup(module.vpc, "main", null), "public_subnet_ids", null), "public", null), "subnet_ids", null), 0)
+
   hosted_zone         = var.hosted_zone
   hosted_zone_private = false
 
@@ -153,10 +155,10 @@ module "minikube" {
   ]
 }
 
-# output "MINIKUBE_SERVER" {
-#   value = "ssh centos@${module.minikube.public_ip}"
-# }
+output "MINIKUBE_SERVER" {
+  value = "ssh centos@${module.minikube.public_ip}"
+}
 
-# output "KUBE_CONFIG" {
-#   value = "scp centos@${module.minikube.public_ip}:/home/centos/kubeconfig ~/.kube/config"
-# }
+output "KUBE_CONFIG" {
+  value = "scp centos@${module.minikube.public_ip}:/home/centos/kubeconfig ~/.kube/config"
+}
